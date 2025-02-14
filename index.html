@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Size Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #636ff1, #55c1f7);
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+        }
+        .result {
+            font-size: 1.5em;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+        }
+        #deviceType {
+            color: #4f46e5;
+            font-weight: bold;
+        }
+        .credit {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #64748b;
+        }
+        .credit a {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        .credit a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Screen Size Checker</h1>
+        <div>
+            <span>Screen Width: </span><span id="screenWidth"></span> px
+        </div>
+        <div class="result">
+            <span>Device Type: </span><span id="deviceType"></span>
+        </div>
+        <div class="credit">
+            Designed with ❤️ by <a href="https://www.linkedin.com/in/abdul-majid-amadu-691134207/" target="_blank">Majid</a>
+        </div>
+    </div>
+
+    <script>
+        function getDeviceType(width) {
+            if (width < 576) return 'Extra Small (XS) - Phones';
+            if (width >= 576 && width < 768) return 'Small (SM) - Larger Phones';
+            if (width >= 768 && width < 992) return 'Medium (MD) - Tablets';
+            if (width >= 992 && width < 1200) return 'Large (LG) - Laptops';
+            if (width >= 1200 && width < 1400) return 'Extra Large (XL) - Desktops';
+            return 'Extra Extra Large (XXL) - Large Screens';
+        }
+
+        function updateScreenInfo() {
+            const width = window.innerWidth;
+            const deviceType = getDeviceType(width);
+            document.getElementById('screenWidth').innerText = width;
+            document.getElementById('deviceType').innerText = deviceType;
+        }
+
+        window.addEventListener('resize', updateScreenInfo);
+        window.addEventListener('load', updateScreenInfo);
+    </script>
+</body>
+</html>
