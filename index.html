@@ -55,13 +55,31 @@
         .credit a:hover {
             text-decoration: underline;
         }
+        .width-display {
+            background: #f0f7ff;
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            display: inline-block;
+            margin: 15px 0;
+            font-size: 1.3em;
+        }
+        #screenWidth {
+            color: #4f46e5;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+        .unit {
+            color: #64748b;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Screen Size Checker</h1>
-        <div>
-            <span>Screen Width: </span><span id="screenWidth"></span> px
+        <div class="width-display">
+            <span>Screen Width: </span><span id="screenWidth"></span><span class="unit">px</span>
         </div>
         <div class="result">
             <span>Device Type: </span><span id="deviceType"></span>
